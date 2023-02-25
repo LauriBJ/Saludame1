@@ -9,7 +9,8 @@ const app = express();
 
 app.get("/", (req, res) => {
   const nombre = req.query.nombre;
-  res.end("<h1>Hola " + nombre + "!</h1>");
+  if (nombre === undefined || nombre === "") res.end("<h1>Hola desconocido!");
+  else res.end("<h1>Hola " + nombre + "!</h1>");
 });
 
 app.listen(3000, () => console.log("escuchando"));
